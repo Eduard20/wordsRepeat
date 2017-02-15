@@ -101,7 +101,7 @@ const helpers = {
             f: '44khz_16bit_stereo',
             ssml: false,
             b64: true,
-            callback : function (error, content) {
+            callback : (error, content) => {
                 next(error || content);
             }
         });

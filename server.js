@@ -17,7 +17,6 @@ process.env.NODE_ENV = platformConfigs.mode;
 // MongoDB
 
 mongoose.connect(platformConfigs.mongoURI);
-// mongoose.connect(platformConfigs.mongoConf.url,platformConfigs.mongoConf.options);
 mongoose.connection.on("connected", () => {console.log("Mongo default connection open")});
 mongoose.connection.on("error", (err) =>  {console.log("Mongo default connection error: " + err)});
 mongoose.connection.on("disconnected", () => {console.log("Mongo default connection disconnected")});
