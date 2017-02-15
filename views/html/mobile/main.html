@@ -1,0 +1,56 @@
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large teal lighten-2" ng-click="openAddModal()">
+        <i class="large material-icons">add</i>
+    </a>
+</div>
+<div class="row center">
+    <div class="collapsible-header teal lighten-2 white-text">10 latest words</div>
+    <div class="preloader-wrapper active" style="margin-top: 50px" ng-show="!showWords">
+        <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+            <div class="circle"></div>
+        </div><div class="circle-clipper right">
+            <div class="circle"></div>
+        </div>
+        </div>
+    </div>
+    <p class="white-text center" ng-show="latestWords.length == 0">{{wordMessage}}</p>
+    <ul class="collection left-align" ng-show="showWords">
+        <li class="collection-item avatar" ng-repeat="word in latestWords">
+            <i class="material-icons circle teal lighten-2" ng-click="convertToSpeech(word)">volume_up</i>
+            <span class="title teal-text lighten-2 ">{{word.word}}</span>
+            <p>{{word.translation}}</p>
+            <a href="" class="secondary-content" ng-click="deleteWord(word)"><i class="material-icons red-text">delete</i></a>
+        </li>
+    </ul>
+</div>
+<div id="add" class="modal">
+    <div class="modal-content">
+        <form name="addForm">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="english" type="text" class="validate" ng-model="word" required>
+                    <label for="english">English</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="translation" type="text" class="validate" ng-model="translation" required>
+                    <label for="translation">translation</label>
+                </div>
+            </div>
+            <div class="input-field">
+                <a class="modal-action modal-close waves-effect waves-green btn-flat" ng-disabled="addForm.$invalid" ng-click="addWord(word, translation)">Add</a>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('.collapsible').collapsible();
+        Materialize.updateTextFields();
+        $('select').material_select();
+        $('ul.tabs').tabs();
+        $('.modal').modal();
+    });
+</script>

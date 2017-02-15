@@ -1,0 +1,16 @@
+#words table td i:hover {
+    color: #ccc;
+    cursor: pointer;
+}
+#words .collapsible-header, #words .collapsible-body {
+    border: none;
+}
+#words .collapsible {
+    border-radius: 0 0 2px 2px;
+}
+#searchWords p {
+    padding-bottom: 0;
+}
+.collection .collection-item.avatar {
+    min-height: 0;
+}
